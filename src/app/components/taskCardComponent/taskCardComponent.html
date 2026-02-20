@@ -1,0 +1,21 @@
+<div
+  class="task-card"
+  [class.completed]="task.completed"
+  [class.priority-high]="task.priority === 'High'"
+  [class.priority-medium]="task.priority === 'Medium'"
+  [class.priority-low]="task.priority === 'Low'"
+>
+  <div class="priority-bar"></div>
+  
+  <div class="card-body">
+    <h3 class="task-title">{{ task.title }}</h3>
+    <p class="task-priority">{{ task.priority }}</p>
+    
+    <div class="actions">
+      <button class="btn-complete" (click)="toggle.emit()">
+        {{ task.completed ? 'Reopen' : 'Complete' }}
+      </button>
+      <button class="btn-delete" (click)="delete.emit()">Delete</button>
+    </div>
+  </div>
+</div>
